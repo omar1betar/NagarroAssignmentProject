@@ -3,6 +3,7 @@ package com.betar.javaassignment.utility;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -14,7 +15,8 @@ import java.util.function.Function;
 @Component
 public class JwtUtil {
 
-    private String secret = "zxcvbnmasdfghjklqwertyuiopqazwsxedcrfvtgbyhnujmik"; // You should store this securely
+    @Value("$(secret.key)")
+    private String secret ;
 
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();

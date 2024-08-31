@@ -54,6 +54,7 @@ public class StatementController {
                 .anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ADMIN"))) {
             // User has the "ROLE_ADMIN" authority
             System.out.println(authentication.getAuthorities());
+
         }
 
         var username = authentication.getName();//get username
